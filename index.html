@@ -4,15 +4,133 @@
 		<link href="css/style.css" rel="stylesheet" media="screen">
     <script>
       window.onload = function(){
-        // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
+				
+				// ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
         // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
-        
+				console.log(geemails);
+
+
+				
+// GENERATE ORIGINAL 10 MESSAGES				
+
+				for(i=0; i<geemails.length; i++){
+					
+					var addDate = document.createElement('div');
+					addDate.className = 'date';
+					addDate.innerHTML = geemails[i].date;
+					main.appendChild(addDate);
+
+					var addSender = document.createElement('div');
+					addSender.className = 'sender';
+					addSender.innerHTML = geemails[i].sender;
+					main.appendChild(addSender);
+
+					var addSubject = document.createElement('div');
+					addSubject.className = 'subject';
+					addSubject.innerHTML = geemails[i].subject;
+					main.appendChild(addSubject);
+
+					var addMessage = document.createElement('div');
+					addMessage.className = 'message';
+					addMessage.innerHTML = 'Message';
+					main.appendChild(addMessage);
+					
+					var addBody = document.createElement('div');
+					addBody.className = 'bodys';
+					addBody.innerHTML = geemails[i].body;
+					addMessage.appendChild(addBody);
+
+				}
+
+
+// TUCK 'BODYS' AS CHILD INSIDE OF PARENT 'MESSAGE'
+
+
+
+					var messageElem = document.getElementsByClassName('message');
+
+					for(var i = 0; i<messageElem.length; i++){
+						messageElem[i].addEventListener('click', messageShow);
+					}
+
+					function messageShow(){
+						var expose = this.querySelectorAll('.bodys')[0];
+						if(expose.style.display === 'none'){
+							expose.style.display = 'block';
+						}else{
+							expose.style.display = 'none';
+						}
+					}
+
+
+// CREATE INBOX
+
+					var inboxNum = document.createElement('p');
+					inboxNum.id = 'message count';
+					inboxNum.innerHTML = geemails.length;
+					inbox.appendChild(inboxNum);
+
+
+// CREATE MESSAGE GENERATOR
+
+					//setInterval(getNewMessage(), 2000);
+					console.log(getNewMessage());
+					//console.log(setInterval(getNewMessage(), 3000));
+
+					function generator(){
+
+					console.log('test');
+
+					var addDate = document.createElement('div');
+					addDate.className = 'date';
+					addDate.innerHTML = getNewMessage().date;
+					main.appendChild(addDate);
+
+					var addSender = document.createElement('div');
+					addSender.className = 'sender';
+					addSender.innerHTML = getNewMessage().sender;
+					main.appendChild(addSender);
+
+					var addSubject = document.createElement('div');
+					addSubject.className = 'subject';
+					addSubject.innerHTML = getNewMessage().subject;
+					main.appendChild(addSubject);
+
+					var addMessage = document.createElement('div');
+					addMessage.className = 'message';
+					addMessage.innerHTML = 'Message';
+					main.appendChild(addMessage);
+					
+					var addBody = document.createElement('div');
+					addBody.className = 'bodys';
+					addBody.innerHTML = getNewMessage().body;
+					addMessage.appendChild(addBody);
+
+					}
+					
+					setInterval(generator(), 2000);
+
       };
+
     </script>
 	</head>
 	<body>
-		<div class="container" id="main">
-			Build Me!
+		
+		<div class = "header">
+			<h1 id = 'header1'>Welcome to Gee-Mail:</h1>
+			<h2 id = 'header2'>Let the Head Bangin' Begin</h2>
 		</div>
+
+
+		<div id="counter">
+			<h2 id="inbox">Inbox</h2>
+		</div>
+
+
+		<div id="main"></div>
+
+
+		<div id='generate main'></div>
+
 	</body>
 </html>
