@@ -55,10 +55,10 @@
 
 					function messageShow(){
 						var expose = this.querySelectorAll('.bodys')[0];
-						if(expose.style.display === 'none'){
-							expose.style.display = 'block';
-						}else{
+						if(expose.style.display === 'block'){
 							expose.style.display = 'none';
+						}else{
+							expose.style.display = 'block';
 						}
 					}
 
@@ -73,13 +73,15 @@
 
 // CREATE MESSAGE GENERATOR
 
+// &
+
+// CREATE MESSAGE GENERATOR: TUCK 'BODYS' AS CHILD INSIDE OF PARENT 'MESSAGE'
+
 					//setInterval(getNewMessage(), 2000);
-					console.log(getNewMessage());
+					//console.log(getNewMessage());
 					//console.log(setInterval(getNewMessage(), 3000));
 
 					function generator(){
-
-					console.log('test');
 
 					var addDate = document.createElement('div');
 					addDate.className = 'date';
@@ -106,9 +108,36 @@
 					addBody.innerHTML = getNewMessage().body;
 					addMessage.appendChild(addBody);
 
+
+
+
+					var messageElem = document.getElementsByClassName('message');
+
+					for(var i = 0; i<messageElem.length; i++){
+						messageElem[i].addEventListener('click', messageShow);
+					}
+
+					function messageShow(){
+						var expose = this.querySelectorAll('.bodys')[0];
+						if(expose.style.display === 'block'){
+							expose.style.display = 'none';
+						}else{
+							expose.style.display = 'block';
+						}
+					}
+
+					inboxNum.innerHTML++
+
 					}
 					
-					setInterval(generator(), 2000);
+					setInterval(generator, 5000);
+
+
+
+
+
+
+
 
       };
 
