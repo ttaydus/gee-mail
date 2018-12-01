@@ -1,0 +1,28 @@
+.header{
+    background-color: cornflowerblue;
+    color: black;
+    font-size: 60px;
+    text-align: center;
+}
+
+#header1{
+    padding-bottom: 0px;
+    padding-top: 20px;
+    margin-bottom: 5px;
+}
+
+#header2{
+    font-size: 50px;
+    padding-bottom: 80px;
+    margin-top:0px;
+}
+
+.bodys{
+    display: none;
+}
+
+.message{
+    margin-bottom: 50px;
+}
+
+
