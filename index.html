@@ -2,6 +2,7 @@
 	<head>
 		<script src="js/mail-generator.js"></script>
 		<link href="css/style.css" rel="stylesheet" media="screen">
+		<link href="https://fonts.googleapis.com/css?family=Fredoka+One|Marck+Script|Parisienne|Sacramento" rel="stylesheet">
     <script>
       window.onload = function(){
 				
@@ -17,22 +18,22 @@
 					
 					var addDate = document.createElement('div');
 					addDate.className = 'date';
-					addDate.innerHTML = geemails[i].date;
+					addDate.innerHTML = 'DATE: ' + geemails[i].date;
 					main.appendChild(addDate);
 
 					var addSender = document.createElement('div');
 					addSender.className = 'sender';
-					addSender.innerHTML = geemails[i].sender;
+					addSender.innerHTML = 'SENDER: ' + geemails[i].sender;
 					main.appendChild(addSender);
 
 					var addSubject = document.createElement('div');
 					addSubject.className = 'subject';
-					addSubject.innerHTML = geemails[i].subject;
+					addSubject.innerHTML = 'SUBJECT: ' + geemails[i].subject;
 					main.appendChild(addSubject);
 
 					var addMessage = document.createElement('div');
 					addMessage.className = 'message';
-					addMessage.innerHTML = 'Message';
+					addMessage.innerHTML = 'MESSAGE: ';
 					main.appendChild(addMessage);
 					
 					var addBody = document.createElement('div');
@@ -66,7 +67,7 @@
 // CREATE INBOX
 
 					var inboxNum = document.createElement('p');
-					inboxNum.id = 'message count';
+					inboxNum.id = 'messageCount';
 					inboxNum.innerHTML = geemails.length;
 					inbox.appendChild(inboxNum);
 
@@ -85,22 +86,22 @@
 
 					var addDate = document.createElement('div');
 					addDate.className = 'date';
-					addDate.innerHTML = getNewMessage().date;
+					addDate.innerHTML = 'DATE: ' + getNewMessage().date;
 					main.appendChild(addDate);
 
 					var addSender = document.createElement('div');
 					addSender.className = 'sender';
-					addSender.innerHTML = getNewMessage().sender;
+					addSender.innerHTML = 'SENDER: ' + getNewMessage().sender;
 					main.appendChild(addSender);
 
 					var addSubject = document.createElement('div');
 					addSubject.className = 'subject';
-					addSubject.innerHTML = getNewMessage().subject;
+					addSubject.innerHTML = 'SUBJECT: ' + getNewMessage().subject;
 					main.appendChild(addSubject);
 
 					var addMessage = document.createElement('div');
 					addMessage.className = 'message';
-					addMessage.innerHTML = 'Message';
+					addMessage.innerHTML = 'MESSAGE: ';
 					main.appendChild(addMessage);
 					
 					var addBody = document.createElement('div');
@@ -152,14 +153,20 @@
 
 
 		<div id="counter">
-			<h2 id="inbox">Inbox</h2>
+			<h2 id="inbox">Inbox:</h2>
 		</div>
 
+		<div class= 'navBar' id= 'entire' >
+			<ul class="navBarInner">HOME</ul>
+			<ul class="navBarInner">ABOUT</ul>
+			<ul class="navBarInner">NEWS</ul>
+			<ul class="navBarInner">OTHER</ul>
+		</div>
 
 		<div id="main"></div>
 
 
-		<div id='generate main'></div>
+
 
 	</body>
 </html>
